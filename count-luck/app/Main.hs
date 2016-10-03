@@ -4,7 +4,10 @@ import Control.Applicative
 import Control.Monad
 import System.IO
 import Data.List
+import Data.Tree
 import Debug.Trace
+
+data Node =
 
 main :: IO ()
 main = do
@@ -24,7 +27,12 @@ solve t
         let m = read $ n_m!!1 :: Int
         matrix_temp <- getMultipleLines n
         let matrix = matrix_temp
-        return matrix
+        k_temp <- getLine
+        let k = k_temp
+
+        sub_arr <- solve (t-1)
+        let ret = matrix ++ sub_arr
+        return ret
 
 getMultipleLines :: Int -> IO [String]
 getMultipleLines n
