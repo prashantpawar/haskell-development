@@ -12,7 +12,7 @@ main = do
     let t = read $ t_temp :: Int
     output_temp <- solve t
     let output = output_temp
-    print $ show output
+    print $ output
 
 solve :: Int -> IO [String]
 solve t
@@ -20,9 +20,9 @@ solve t
     | otherwise = do
         n_m_temp <- getLine
         let n_m = words n_m_temp
-        let n = trace(show n_m)(n_m)
-        -- let m = read n_m!!1 :: Int
-        matrix_temp <- getMultipleLines 5
+        let n = read $ n_m!!0 :: Int
+        let m = read $ n_m!!1 :: Int
+        matrix_temp <- getMultipleLines n
         let matrix = matrix_temp
         return matrix
 
